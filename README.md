@@ -11,7 +11,7 @@ docker run -d --net host \
 	-e FTP_LIST="user1:pass1;user2:pass2" \
 	-v /path_to_ftp_dir_for_user1:/home/user1 \
 	-v /path_to_ftp_dir_for_user2:/home/user2 \
-	kibatic/proftpd
+	composistemassl/proftpd
 ```
 
 Warning
@@ -31,7 +31,7 @@ docker run -d --net host \
 	-e USERADD_OPTIONS="-o --gid 33 --uid 33" \
 	-v /path_to_ftp_dir_for_user1:/home/user1 \
 	-v /path_to_ftp_dir_for_user2:/home/user2 \
-	kibatic/proftpd
+	composistemassl/proftpd
 ```
 
 The USERADD_OPTIONS is not mandatory. It contains parameters we can
@@ -54,7 +54,7 @@ docker run -d --net host \
 	-e PUBLICIP="1.2.3.4" \
 	-v /path_to_ftp_dir_for_user1:/home/user1 \
 	-v /path_to_ftp_dir_for_user2:/home/user2 \
-	kibatic/proftpd
+	composistemassl/proftpd
 ```
 
 The proftpd service is configured for using the passive ports range 
@@ -70,7 +70,7 @@ version: '3.7'
 
 services:
   proftpd:
-    image: kibatic/proftpd
+    image: composistemassl/proftpd
     network_mode: "host"
     restart: unless-stopped
     environment:
