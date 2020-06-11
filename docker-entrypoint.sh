@@ -16,7 +16,7 @@ fi
 
 if [ -n "$PUBLICIP" ]; then
     sed -i.bak "s/^# \(MasqueradeAddress\).*/MasqueradeAddress $PUBLICIP/" /etc/proftpd/proftpd.conf
-	getent hosts $PUBLICIP >> /etc/hosts
+	getent ahosts $PUBLICIP | head -n 1 | awk '{ print $1,"\t",$3}' >> /etc/hosts
 
     #Configure PassivePorts
     sed -i.bak "s/^# \(PassivePorts\).*/PassivePorts    30000 30005/" /etc/proftpd/proftpd.conf
