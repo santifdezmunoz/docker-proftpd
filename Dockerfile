@@ -4,6 +4,7 @@ LABEL maintainer="Santiago Fernández (santiago.fernandez@composistemas.es)"
 
 RUN apt-get update -qq && \
 	apt-get install -y proftpd && \
+	apt-get install -y dnsutils && \
 	apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
