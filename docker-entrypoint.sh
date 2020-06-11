@@ -14,4 +14,12 @@ if [ -n "$FTP_LIST" ]; then
 	done
 fi
 
+if [ -n "$PUBLICIP" ]; then
+    sed -i.bak "s/^# \(MasqueradeAddress\).*/MasqueradeAddress $PUBLICIP/" /etc/proftpd/proftpd.conf
+
+    #Configure PassivePorts
+    sed -i.bak "s/^# \(PassivePorts\).*/PassivePorts    30000 30005/" /etc/proftpd/proftpd.conf
+
+fi
+
 exec "$@"

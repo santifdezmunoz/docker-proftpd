@@ -1,6 +1,6 @@
 FROM debian:stretch
 
-MAINTAINER Philippe Le Van (@plv on twitter)
+LABEL maintainer="Santiago Fernández (santiago.fernandez@composistemas.es)"
 
 RUN apt-get update -qq && \
 	apt-get install -y proftpd && \
@@ -12,6 +12,7 @@ RUN sed -i "s/# DefaultRoot/DefaultRoot/" /etc/proftpd/proftpd.conf
 EXPOSE 20 21
 
 ADD docker-entrypoint.sh /usr/local/sbin/docker-entrypoint.sh
+RUN chmod +x /usr/local/sbin/docker-entrypoint.sh
 ENTRYPOINT ["/usr/local/sbin/docker-entrypoint.sh"]
 
 CMD ["proftpd", "--nodaemon"]
