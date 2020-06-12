@@ -8,6 +8,7 @@ RUN apt-get update -qq && \
 	apt-get install -y net-tools && \
 	apt-get install -y vim && \
 	apt-get install -y less && \
+	apt-get install -y procps && \
 	apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
