@@ -60,6 +60,11 @@ docker run -d --net host \
 The proftpd service is configured for using the passive ports range 
 from 30000 to 30005
 
+Troubleshooting
+---------------
+If you need to perform some troubleshooting use **composistemassl/proftpd:testing** image
+instead of *composistemassl/proftpd:latest* which is intended for production deployments.
+
 docker-compose.yml example
 --------------------------
 
